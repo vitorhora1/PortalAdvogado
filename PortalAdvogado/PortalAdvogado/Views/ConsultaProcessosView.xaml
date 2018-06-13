@@ -28,7 +28,7 @@
                                 <Label Text="{Binding numeroProcessoTJSE}" Grid.Column="1" Grid.Row="0" FontSize="Medium" TextColor="DarkGreen"/>
                                 <Label Text="Nº Único: " Grid.Column="0" Grid.Row="1" FontSize="Small"></Label>
                                 <Label Text="{Binding numeroUnico}" Grid.Column="1" Grid.Row="1" FontSize="Small"/>
-                                <Label Text="Data da Distribuição " Grid.Column="0" Grid.Row="2" FontSize="Small"></Label>
+                                <Label Text="Data da Distribuição: " Grid.Column="0" Grid.Row="2" FontSize="Small"></Label>
                                 <Label Text="{Binding dataDistribuicao}" Grid.Column="1" Grid.Row="2" FontSize="Small"/>
                                 <Label Text="Autor: " Grid.Column="0" Grid.Row="3" FontSize="Small"></Label>
                                 <Label Text="{Binding autor}" Grid.Column="1" Grid.Row="3" FontSize="Small"/>
