@@ -13,5 +13,8 @@ namespace PortalAdvogado.Models
         public string assunto { get; set; }
         public string dataDistribuicao { get; set; }
         public string localizacao { get; set; }
+        public List<Parte> listaAutores { get; set; }
+        public List<Parte> listaReus { get; set; }
+        public List<Movimento> listaMovimentos { get; set; }
     }
 }

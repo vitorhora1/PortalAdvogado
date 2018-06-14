@@ -19,7 +19,19 @@ namespace PortalAdvogado.Views
                                                                         autor = "Vitor Hora Fontes Pereira",
                                                                         reu = "Prefeitura de Aracaju",
                                                                         assunto = "Direito Civil",
-                                                                        localizacao = "4ª Comarca Cível de Aracaju"} };
+                                                                        localizacao = "4ª Comarca Cível de Aracaju",
+                                                                        listaAutores = new List<Parte>{ new Parte(){ nomeParte = "Outro Autor 1",
+                                                                                                                    tipoParte = "Autor",
+                                                                                                                    listaAdvogados = new List<Advogado>()},
+                                                                                                        new Parte(){ nomeParte = "Outro Autor 2",
+                                                                                                                    tipoParte = "Autor",
+                                                                                                                    listaAdvogados = new List<Advogado>()} },
+                                                                        listaReus = new List<Parte>{ new Parte(){ nomeParte = "Outro Réu 1",
+                                                                                                                    tipoParte = "Réu",
+                                                                                                                    listaAdvogados = new List<Advogado>()},
+                                                                                                     new Parte(){ nomeParte = "Outro Réu 2",
+                                                                                                                    tipoParte = "Réu",
+                                                                                                                    listaAdvogados = new List<Advogado>()} }  } };
 
         public ConsultaProcessosView ()
 		{
@@ -58,7 +70,13 @@ namespace PortalAdvogado.Views
 
         private void SearchBar_OnTextPressed(object sender, TextChangedEventArgs e){ }
 
-        private void OnPartesClicked(object sender, TextChangedEventArgs e){ }
+        private void OnPartesClicked(object sender, TextChangedEventArgs e){
+            List<List<Parte>> listaPartes = new List<List<Parte>>();
+            listaPartes.Add(processos[0].listaAutores);
+            listaPartes.Add(processos[0].listaReus);
+            MessagingCenter.Send<List<List<Parte>>>(listaPartes, "PartesProcesso");
+            Navigation.PushAsync(new PartesView());
+        }
 
         private void OnMovimentosClicked(object sender, TextChangedEventArgs e) { }
 
