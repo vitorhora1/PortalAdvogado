@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PortalAdvogado.Models
 {
-    class Movimento
+    public class Movimento
     {
         public int codMovimento { get; set; }
         public string descMovimento { get; set; }
