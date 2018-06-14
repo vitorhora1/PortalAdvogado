@@ -42,16 +42,26 @@ namespace PortalAdvogado.Views
                 }
 
                 ProcessosListView.IsVisible = true;
+                PartesBtn.IsVisible = true;
+                MovimentosBtn.IsVisible = true;
+                DocumentosBtn.IsVisible = true;
                 EmptyListLabel.IsVisible = false;
             } catch (Exception ex) {
                 ProcessosListView.IsVisible = false;
+                PartesBtn.IsVisible = false;
+                MovimentosBtn.IsVisible = false;
+                DocumentosBtn.IsVisible = false;
                 EmptyListLabel.IsVisible = true;
                 DisplayAlert("Erro", ex.Message, "OK");
             }
         }
 
-        private void SearchBar_OnTextPressed(object sender, TextChangedEventArgs e)
-        {
-        }
+        private void SearchBar_OnTextPressed(object sender, TextChangedEventArgs e){ }
+
+        private void OnPartesClicked(object sender, TextChangedEventArgs e){ }
+
+        private void OnMovimentosClicked(object sender, TextChangedEventArgs e) { }
+
+        private void OnDocumentosClicked(object sender, TextChangedEventArgs e) { }
     }
 }

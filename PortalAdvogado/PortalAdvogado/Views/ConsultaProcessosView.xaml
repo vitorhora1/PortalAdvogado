@@ -43,10 +43,15 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
+                <Button x:Name="PartesBtn" Text="Partes" HorizontalOptions="FillAndExpand" Clicked="OnPartesClicked" IsVisible="false"/>
+                <Button x:Name="MovimentosBtn" Text="Movimentos" HorizontalOptions="FillAndExpand" Clicked="OnMovimentosClicked" IsVisible="false"/>
+                <Button x:Name="DocumentosBtn" Text="Documentos" HorizontalOptions="FillAndExpand" Clicked="OnDocumentosClicked" IsVisible="false"/>
+            </StackLayout>
             <StackLayout Margin="40" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label x:Name="EmptyListLabel"
-                Text="Digite o número único CNJ do processo ou o número do processo no TJSE."
-                IsVisible="true"/>
+                <Label x:Name="EmptyListLabel"
+                    Text="Digite o número único CNJ do processo ou o número do processo no TJSE."
+                    IsVisible="true"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
