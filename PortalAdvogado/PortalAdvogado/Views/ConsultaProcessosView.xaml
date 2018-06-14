@@ -12,7 +12,7 @@
                     BackgroundColor="White"
                     Placeholder="Nº Único ou Nº Processo Origem"/>
             </Frame>
-            <ListView x:Name="ProcessosListView" Margin="10" IsVisible="false" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding processos}">
+            <ListView x:Name="ProcessosListView" Margin="10" IsVisible="false" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding processos}" IsEnabled="false">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -44,7 +44,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
-                <Button x:Name="PartesBtn" Text="Partes" HorizontalOptions="FillAndExpand" Clicked="OnPartesClicked" IsVisible="false"/>
+                <Button x:Name="PartesBtn" Text="Partes e Advogados" HorizontalOptions="FillAndExpand" Clicked="OnPartesClicked" IsVisible="false"/>
                 <Button x:Name="MovimentosBtn" Text="Movimentos" HorizontalOptions="FillAndExpand" Clicked="OnMovimentosClicked" IsVisible="false"/>
                 <Button x:Name="DocumentosBtn" Text="Documentos" HorizontalOptions="FillAndExpand" Clicked="OnDocumentosClicked" IsVisible="false"/>
             </StackLayout>
