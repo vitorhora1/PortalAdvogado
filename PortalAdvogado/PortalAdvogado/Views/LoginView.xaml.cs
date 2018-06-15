@@ -30,5 +30,10 @@ namespace PortalAdvogado
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<LoginException>(this, "FalhaLogin");
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return false;
+        }
     }
 }

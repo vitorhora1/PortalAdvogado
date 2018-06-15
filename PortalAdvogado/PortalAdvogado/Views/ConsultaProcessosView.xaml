@@ -12,7 +12,7 @@
                     BackgroundColor="White"
                     Placeholder="Nº Único ou Nº Processo Origem"/>
             </Frame>
-            <ListView x:Name="ProcessosListView" Margin="10" IsVisible="false" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding processos}">
+            <ListView x:Name="ProcessosListView" Margin="10" IsVisible="false" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding processos}" IsEnabled="false">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -28,7 +28,7 @@
                                 <Label Text="{Binding numeroProcessoTJSE}" Grid.Column="1" Grid.Row="0" FontSize="Medium" TextColor="DarkGreen"/>
                                 <Label Text="Nº Único: " Grid.Column="0" Grid.Row="1" FontSize="Small"></Label>
                                 <Label Text="{Binding numeroUnico}" Grid.Column="1" Grid.Row="1" FontSize="Small"/>
-                                <Label Text="Data da Distribuição " Grid.Column="0" Grid.Row="2" FontSize="Small"></Label>
+                                <Label Text="Data da Distribuição: " Grid.Column="0" Grid.Row="2" FontSize="Small"></Label>
                                 <Label Text="{Binding dataDistribuicao}" Grid.Column="1" Grid.Row="2" FontSize="Small"/>
                                 <Label Text="Autor: " Grid.Column="0" Grid.Row="3" FontSize="Small"></Label>
                                 <Label Text="{Binding autor}" Grid.Column="1" Grid.Row="3" FontSize="Small"/>
@@ -43,10 +43,15 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
+                <Button x:Name="PartesBtn" Text="Partes e Advogados" HorizontalOptions="FillAndExpand" Clicked="OnPartesClicked" IsVisible="false"/>
+                <Button x:Name="MovimentosBtn" Text="Movimentos" HorizontalOptions="FillAndExpand" Clicked="OnMovimentosClicked" IsVisible="false"/>
+                <Button x:Name="DocumentosBtn" Text="Documentos" HorizontalOptions="FillAndExpand" Clicked="OnDocumentosClicked" IsVisible="false"/>
+            </StackLayout>
             <StackLayout Margin="40" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label x:Name="EmptyListLabel"
-                Text="Digite o número único CNJ do processo ou o número do processo no TJSE."
-                IsVisible="true"/>
+                <Label x:Name="EmptyListLabel"
+                    Text="Digite o número único CNJ do processo ou o número do processo no TJSE."
+                    IsVisible="true"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
