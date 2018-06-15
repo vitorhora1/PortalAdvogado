@@ -17,7 +17,14 @@ namespace PortalAdvogado.Views
 		{
             InitializeComponent();
             //Navigation.PopToRootAsync();
-            App.Current.MainPage = new LoginView();
+            try
+            {
+                Application.Current.MainPage = new LoginView();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 	}
 }

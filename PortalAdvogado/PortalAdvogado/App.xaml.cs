@@ -21,7 +21,7 @@ namespace PortalAdvogado
             MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin",
                 (usuario) =>
                 {
-                    MainPage = new MenuView(usuario);
+                    MainPage = new NavigationPage(new MenuView(usuario));
                 });
         }
 

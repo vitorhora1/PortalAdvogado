@@ -11,7 +11,7 @@
     
     <StackLayout Margin="64">
         <Image x:Name="image" Source="tjse.png" Opacity="1" IsVisible="true" VerticalOptions="CenterAndExpand" />
-        <Entry x:Name="campoOab" Placeholder="OAB" Text="{Binding Oab}" Opacity="1"></Entry>
+        <Entry x:Name="campoOab" Placeholder="OAB" Text="{Binding Oab}" Opacity="1" Keyboard="Numeric"></Entry>
         <StackLayout Orientation="Horizontal">
             <Picker Title="Letra" SelectedItem="{Binding Letra}">
                 <Picker.Items>
