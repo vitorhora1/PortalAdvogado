@@ -21,6 +21,7 @@ namespace PortalAdvogado.Views
             this.usuario = usuario;
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
             MasterPage.DadosUsuarioLogado.Text = usuario.nome + " (" + usuario.oab + ")";
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
