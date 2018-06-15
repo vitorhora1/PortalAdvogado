@@ -32,14 +32,13 @@ namespace PortalAdvogado.ViewModels
             }
         }
 
-        private string letra;
+        private string letra = "";
         public string Letra
         {
             get { return letra; }
             set
             {
                 letra = value;
-                if (letra == null) letra = "";
                 ((Command)EntrarCommand).ChangeCanExecute();
             }
         }
