@@ -13,31 +13,13 @@ namespace PortalAdvogado.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PartesView : ContentPage
     {
-        List<Parte> partes = new List<Parte>(){new Parte(){nomeParte = "Eu1", tipoParte = "Autor"},
-                                            new Parte() { nomeParte = "Eu2", tipoParte = "Autor" },
-                                            new Parte() { nomeParte = "Eu3", tipoParte = "Réu" },
-                                            new Parte() { nomeParte = "Eu4", tipoParte = "Réu" } };
+        List<Parte> partes = new List<Parte>();
 
-        public PartesView ()
+        public PartesView (List<List<Parte>> listaPartes)
 		{
 			InitializeComponent ();
-            /*MessagingCenter.Subscribe<List<List<Parte>>>(this, "PartesProcesso", (listaPartes) =>
-            {
-                List<List<Parte>> partesProcesso = listaPartes;
-                this.partes = partesProcesso[0].Concat(partesProcesso[1]).ToList();
-            });
-            PartesListView.ItemsSource = this.partes;*/
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            MessagingCenter.Subscribe<List<List<Parte>>>(this, "PartesProcesso", (listaPartes) =>
-            {
-                List<List<Parte>> partesProcesso = listaPartes;
-                this.partes = partesProcesso[0].Concat(partesProcesso[1]).ToList();
-            });
+            List<List<Parte>> partesProcesso = listaPartes;
+            this.partes = partesProcesso[0].Concat(partesProcesso[1]).ToList();
             PartesListView.ItemsSource = this.partes;
         }
     }

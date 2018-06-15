@@ -74,8 +74,7 @@ namespace PortalAdvogado.Views
             List<List<Parte>> listaPartes = new List<List<Parte>>();
             listaPartes.Add(processos[0].listaAutores);
             listaPartes.Add(processos[0].listaReus);
-            MessagingCenter.Send<List<List<Parte>>>(listaPartes, "PartesProcesso");
-            Navigation.PushAsync(new PartesView());
+            Navigation.PushAsync(new PartesView(listaPartes));
         }
 
         private void OnMovimentosClicked(object sender, TextChangedEventArgs e) { }
