@@ -21,6 +21,18 @@ namespace PortalAdvogado.Views
         public PartesView ()
 		{
 			InitializeComponent ();
+            /*MessagingCenter.Subscribe<List<List<Parte>>>(this, "PartesProcesso", (listaPartes) =>
+            {
+                List<List<Parte>> partesProcesso = listaPartes;
+                this.partes = partesProcesso[0].Concat(partesProcesso[1]).ToList();
+            });
+            PartesListView.ItemsSource = this.partes;*/
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             MessagingCenter.Subscribe<List<List<Parte>>>(this, "PartesProcesso", (listaPartes) =>
             {
                 List<List<Parte>> partesProcesso = listaPartes;
@@ -28,5 +40,5 @@ namespace PortalAdvogado.Views
             });
             PartesListView.ItemsSource = this.partes;
         }
-	}
+    }
 }
