@@ -4,8 +4,8 @@
              x:Class="PortalAdvogado.Views.PartesView"
              Title="Partes e Advogados">
     <ContentPage.Content>
-        <ListView x:Name="PartesListView" BackgroundColor="White" Margin="10" IsVisible="true" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding partes}" IsEnabled="false">
-            <ListView.ItemTemplate>
+        <ListView x:Name="PartesListView" BackgroundColor="White" Margin="10" IsVisible="true" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding listaAdvogadosParte}" IsEnabled="false" IsGroupingEnabled="true">
+            <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="0,0,0,1">
@@ -17,15 +17,36 @@
                                     <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="8*" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="Nome: " Grid.Column="0" Grid.Row="0" FontSize="Small"></Label>
+                                <Label Text="Nome: " Grid.Column="0" Grid.Row="0" FontSize="Small" Font="Bold"></Label>
                                 <Label Text="{Binding nomeParte}" Grid.Column="1" Grid.Row="0" FontSize="Small"/>
-                                <Label Text="Tipo: " Grid.Column="0" Grid.Row="1" FontSize="Small"></Label>
-                                <Label Text="{Binding tipoParte}" Grid.Column="1" Grid.Row="1" FontSize="Small"/>                            
+                                <Label Text="Tipo: " Grid.Column="0" Grid.Row="1" FontSize="Small" Font="Bold"></Label>
+                                <Label Text="{Binding tipoParte}" Grid.Column="1" Grid.Row="1" FontSize="Small"/>
                             </Grid>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,0,0,1">
+                                <Grid WidthRequest="10000" ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" BackgroundColor="LightYellow">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="7*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Advogado: " Grid.Column="0" Grid.Row="0" FontSize="Micro" Font="Bold"></Label>
+                                    <Label Text="{Binding nomeAdvogado}" Grid.Column="1" Grid.Row="0" FontSize="Micro"/>
+                                    <Label Text="OAB: " Grid.Column="0" Grid.Row="1" FontSize="Micro" Font="Bold"></Label>
+                                    <Label Text="{Binding oabAdvogado}" Grid.Column="1" Grid.Row="1" FontSize="Micro"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+            </ListView.ItemTemplate>                
         </ListView>
     </ContentPage.Content>
 </ContentPage>

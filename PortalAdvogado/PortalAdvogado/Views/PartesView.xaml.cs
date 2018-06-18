@@ -13,14 +13,38 @@ namespace PortalAdvogado.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PartesView : ContentPage
     {
-        List<Parte> partes = new List<Parte>();
+        //List<List<Parte>> partes = new List<List<Parte>>();
+        
+        public List<ListaAdvogadoParte> listaAdvogadosParte = new List<ListaAdvogadoParte>();
+
+        public ListaAdvogadoParte listaAux;
+
+        private List<ListaAdvogadoParte> _listaFinalAdvogadosParte;
+        public List<ListaAdvogadoParte> ListaFinalAdvogadosParte { get { return _listaFinalAdvogadosParte; } set { _listaFinalAdvogadosParte = value; base.OnPropertyChanged(); } }
 
         public PartesView (List<List<Parte>> listaPartes)
 		{
 			InitializeComponent ();
-            List<List<Parte>> partesProcesso = listaPartes;
-            this.partes = partesProcesso[0].Concat(partesProcesso[1]).ToList();
-            PartesListView.ItemsSource = this.partes;
+            foreach (var parte in listaPartes[0])
+            {
+                listaAux = new ListaAdvogadoParte(parte.listaAdvogados);
+                listaAux.nomeParte = parte.nomeParte;
+                listaAux.tipoParte = parte.tipoParte;
+                this.listaAdvogadosParte.Add(listaAux);
+            }
+            this.ListaFinalAdvogadosParte = this.listaAdvogadosParte;
+            PartesListView.ItemsSource = this.ListaFinalAdvogadosParte;
+        }
+
+        public class ListaAdvogadoParte : List<Advogado>
+        {
+            public string nomeParte { get; set; }
+            public string tipoParte { get; set; }
+
+            public ListaAdvogadoParte(List<Advogado> advogados)
+            {
+                this.AddRange(advogados);
+            }
         }
     }
 }

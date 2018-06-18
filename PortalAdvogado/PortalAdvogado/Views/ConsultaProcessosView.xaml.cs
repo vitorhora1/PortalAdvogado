@@ -22,16 +22,21 @@ namespace PortalAdvogado.Views
                                                                         localizacao = "4ª Comarca Cível de Aracaju",
                                                                         listaAutores = new List<Parte>{ new Parte(){ nomeParte = "Outro Autor 1",
                                                                                                                     tipoParte = "Autor",
-                                                                                                                    listaAdvogados = new List<Advogado>()},
+                                                                                                                    listaAdvogados = new List<Advogado>() { new Advogado() { nomeAdvogado = "Advogado 1", oabAdvogado = "172890-SE" },
+                                                                                                                                                            new Advogado() { nomeAdvogado = "Advogado 2", oabAdvogado = "652541-SE" },
+                                                                                                                                                            new Advogado() { nomeAdvogado = "Advogado 3", oabAdvogado = "481226-SE" }} },
                                                                                                         new Parte(){ nomeParte = "Outro Autor 2",
                                                                                                                     tipoParte = "Autor",
-                                                                                                                    listaAdvogados = new List<Advogado>()} },
+                                                                                                                    listaAdvogados = new List<Advogado>() { new Advogado() { nomeAdvogado = "Advogado 4", oabAdvogado = "172890-SE" },
+                                                                                                                                                            new Advogado() { nomeAdvogado = "Advogado 5", oabAdvogado = "652541-SE" },
+                                                                                                                                                            new Advogado() { nomeAdvogado = "Advogado 6", oabAdvogado = "481226-SE" }}} },
                                                                         listaReus = new List<Parte>{ new Parte(){ nomeParte = "Outro Réu 1",
                                                                                                                     tipoParte = "Réu",
-                                                                                                                    listaAdvogados = new List<Advogado>()},
+                                                                                                                    listaAdvogados = new List<Advogado>() { new Advogado() { nomeAdvogado = "Advogado 11", oabAdvogado = "172890-SE" },
+                                                                                                                                                            new Advogado() { nomeAdvogado = "Advogado 12", oabAdvogado = "652541-SE" }}                                                                                                                    },
                                                                                                      new Parte(){ nomeParte = "Outro Réu 2",
                                                                                                                     tipoParte = "Réu",
-                                                                                                                    listaAdvogados = new List<Advogado>()} }  } };
+                                                                                                                    listaAdvogados = new List<Advogado>() { new Advogado() { nomeAdvogado = "Advogado 1000", oabAdvogado = "172890-SE" }}                                                                                                                    } }  } };
 
         public ConsultaProcessosView ()
 		{
@@ -72,8 +77,9 @@ namespace PortalAdvogado.Views
 
         private void OnPartesClicked(object sender, TextChangedEventArgs e){
             List<List<Parte>> listaPartes = new List<List<Parte>>();
-            listaPartes.Add(processos[0].listaAutores);
-            listaPartes.Add(processos[0].listaReus);
+            //listaPartes.Add(processos[0].listaAutores);
+            //listaPartes.Add(processos[0].listaReus);
+            listaPartes.Add(processos[0].listaAutores.Concat(processos[0].listaReus).ToList());
             Navigation.PushAsync(new PartesView(listaPartes));
         }
 
