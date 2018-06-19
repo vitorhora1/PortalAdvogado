@@ -12,13 +12,9 @@ namespace PortalAdvogado.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PartesView : ContentPage
-    {
-        //List<List<Parte>> partes = new List<List<Parte>>();
-        
+    {        
         public List<ListaAdvogadoParte> listaAdvogadosParte = new List<ListaAdvogadoParte>();
-
         public ListaAdvogadoParte listaAux;
-
         private List<ListaAdvogadoParte> _listaFinalAdvogadosParte;
         public List<ListaAdvogadoParte> ListaFinalAdvogadosParte { get { return _listaFinalAdvogadosParte; } set { _listaFinalAdvogadosParte = value; base.OnPropertyChanged(); } }
 

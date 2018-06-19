@@ -8,6 +8,7 @@ namespace PortalAdvogado.Models
     {
         public int codMovimento { get; set; }
         public string descMovimento { get; set; }
+        public string textoMovimento { get; set; }
         public DateTime dataMovimento { get; set; }
         public List<Documento> listaDocumentos { get; set; }
     }

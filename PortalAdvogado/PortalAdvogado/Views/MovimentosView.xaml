@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PortalAdvogado.Views.MovimentosView">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="MovimentosSearchBar" TextChanged="OnTextChanged" />
+            <ListView x:Name="MovimentosListView" Margin="10" IsVisible="true" SeparatorVisibility="Default" SeparatorColor="Black" HasUnevenRows="true" ItemsSource="{Binding movimentos}" IsEnabled="false">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" RowSpacing="0" Padding="0,0,0,2" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding dataMovimento}" Grid.Column="0" Grid.Row="0" FontSize="Micro" TextColor="Gray"/>
+                                <Label Text="{Binding descMovimento}" Grid.Column="0" Grid.Row="1" FontSize="Small" TextColor="Black"/>
+                                <Label Text="{Binding textoMovimento}" Grid.Column="0" Grid.Row="2" FontSize="Micro" TextColor="Black"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="EmptyListLabel" Margin="40" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="False">
+                <Label Text="Não existem movimentos cadastrados para este processo."/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
