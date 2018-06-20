@@ -4,7 +4,7 @@
              x:Class="PortalAdvogado.Views.DocumentosView">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="DocumentosListView" BackgroundColor="White" Margin="10" IsVisible="true" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding listaDocumentosMovimento}" IsEnabled="false" IsGroupingEnabled="true">
+            <ListView x:Name="DocumentosListView" BackgroundColor="White" Margin="10" IsVisible="true" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding listaDocumentosMovimento}" IsGroupingEnabled="true" ItemSelected="OnDocumentoSelected">
                 <ListView.GroupHeaderTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -27,9 +27,6 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnDocumentoClicked" CommandParameter="{Binding ConsultaDocumentoCommand}"/>
-                            </ViewCell.ContextActions>
                             <StackLayout Padding="0,0,0,1">
                                 <Grid WidthRequest="10000" ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" BackgroundColor="LightYellow">
                                     <Grid.RowDefinitions>

@@ -6,6 +6,7 @@ namespace PortalAdvogado.Models
 {
     public class Documento
     {
+        public string idDocumento { get; set; }
         public string tipoDocumento { get; set; }
         public string nomeDocumento { get; set; }
         public byte[] conteudoDocumento { get; set; }

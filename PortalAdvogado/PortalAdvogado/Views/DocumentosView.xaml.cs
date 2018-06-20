@@ -1,7 +1,9 @@
 ﻿using PortalAdvogado.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,8 +42,11 @@ namespace PortalAdvogado.Views
             }
         }
 
-        public void OnDocumentoClicked(object sender, EventArgs e)
+        public void OnDocumentoSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var documento = (Documento)e.SelectedItem;
+            if (documento.idDocumento == null) documento.idDocumento = "e42694c6-4164-33eb-8c35-cd17fea715f8";
+            Navigation.PushAsync(new PDFView(documento.idDocumento));
         }
 
         public class ListaDocumentoMovimento : List<Documento>
