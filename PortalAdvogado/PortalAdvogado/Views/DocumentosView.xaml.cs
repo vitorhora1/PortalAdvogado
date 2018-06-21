@@ -46,7 +46,7 @@ namespace PortalAdvogado.Views
         {
             var documento = (Documento)e.SelectedItem;
             if (documento.idDocumento == null) documento.idDocumento = "e42694c6-4164-33eb-8c35-cd17fea715f8";
-            Navigation.PushAsync(new PDFView(documento.idDocumento));
+            Navigation.PushAsync(new PDFView(documento.idDocumento,documento.nomeDocumento));
         }
 
         public class ListaDocumentoMovimento : List<Documento>

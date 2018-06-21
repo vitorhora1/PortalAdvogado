@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PortalAdvogado"
+             Title="{Binding titleDoc}"
              x:Class="PortalAdvogado.PDFView">
     <ContentPage.Content>
-        <WebView Source="http://www.faap.br/internacionalizacao/pdf/curriculum_vitae_modelo.pdf" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        <local:PdfView  x:Name="PdfDocView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
     </ContentPage.Content>
 </ContentPage>

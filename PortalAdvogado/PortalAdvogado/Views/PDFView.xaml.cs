@@ -14,33 +14,35 @@ namespace PortalAdvogado
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PDFView : ContentPage
 	{
-        public string urlDocumento = @"http://homologacao.tjse.jus.br:8080/tjse-mobile-rest-services/downloadFile/";
+        //public string urlDocumento = @"http://homologacao.tjse.jus.br:8080/tjse-mobile-rest-services/downloadFile/";
+        public string urlDocumento = @"http://www.concursosfcc.com.br/concursos/trt2r118/edital_de_abertura_final_trt2r118.pdf";
+        public string titleDoc;
 
-        public PDFView (string idDocumento)
+        public PDFView (string idDocumento, string nomeDocumento)
 		{
-			InitializeComponent ();
-            urlDocumento += idDocumento;
-		}
+            InitializeComponent ();
+            //urlDocumento += idDocumento;
+            titleDoc = nomeDocumento;
+            openFile(idDocumento, nomeDocumento);
+        }
 
-        public async void openFile(String idDocumento)
+        public async void openFile(String idDocumento, String nomeDocumento)
         {
             HttpResponseMessage response = await getFile(idDocumento);
             Byte[] result = await response.Content.ReadAsByteArrayAsync();
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                Stream stream = new System.IO.MemoryStream(result);
-                StreamReader r = new StreamReader(stream);
-                string text = "";
-                using (var reader = new System.IO.StreamReader(stream))
-                {
-                    text = reader.ReadToEnd();
-                }
-            });
+            string URL = await DependencyService.Get<ISaveFile>().SaveFile(nomeDocumento, result);
+            PdfDocView.Uri = URL;
         }
 
         public Task<HttpResponseMessage> getFile(String idDocumento)
         {
-            return new HttpClient().GetAsync(urlDocumento + idDocumento);
+            //return new HttpClient().GetAsync(urlDocumento) + idDocumento);
+            return new HttpClient().GetAsync(urlDocumento);
+        }
+
+        protected override void OnAppearing()
+        {
+            Title = titleDoc;
         }
     }
 }
