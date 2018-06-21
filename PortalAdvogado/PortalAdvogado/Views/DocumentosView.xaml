@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PortalAdvogado.Views.DocumentosView">
+             x:Class="PortalAdvogado.Views.DocumentosView"
+             Title="Documentos">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="DocumentosListView" BackgroundColor="White" Margin="10" IsVisible="true" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding listaDocumentosMovimento}" IsGroupingEnabled="true" ItemSelected="OnDocumentoSelected">

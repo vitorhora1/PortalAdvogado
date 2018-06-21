@@ -27,10 +27,12 @@ namespace PortalAdvogado.Views
             {
                 foreach (var movimento in listaMovimentos[0])
                 {
-                    listaAux = new ListaDocumentoMovimento(movimento.listaDocumentos);
-                    listaAux.descMovimento = movimento.descMovimento;
-                    listaAux.dataMovimento = movimento.dataMovimento;
-                    this.listaDocumentosMovimento.Add(listaAux);
+                    if (movimento.listaDocumentos != null && movimento.listaDocumentos.Any()) {
+                        listaAux = new ListaDocumentoMovimento(movimento.listaDocumentos);
+                        listaAux.descMovimento = movimento.descMovimento;
+                        listaAux.dataMovimento = movimento.dataMovimento;
+                        this.listaDocumentosMovimento.Add(listaAux);
+                    }
                 }
                 this.ListaFinalDocumentosMovimento = this.listaDocumentosMovimento;
                 DocumentosListView.ItemsSource = this.ListaFinalDocumentosMovimento;
